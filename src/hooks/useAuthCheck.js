@@ -7,7 +7,7 @@ const useAuthCheck = () => {
     const checkAuth = async () => {
       try {
         const response = await fetch("/api/auth/check", { credentials: "include" });
-
+  
         if (response.ok) {
           setIsLoggedIn(true);
         } else {
