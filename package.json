@@ -30,5 +30,8 @@
     "url": "https://github.com/ShubhamChouhan97/wfront/issues"
   },
   "homepage": "https://github.com/ShubhamChouhan97/wfront#readme",
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "vite": "^6.2.1"
+  }
 }
