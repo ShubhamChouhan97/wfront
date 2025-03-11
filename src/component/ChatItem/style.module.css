@@ -1,0 +1,45 @@
+.chatmain{
+    display: flex;
+    align-items: center;
+    height: 60px;
+    width: 100%;
+    cursor: pointer;
+}
+.chatmain img{
+    width: 30px;
+    height: 30px;
+}
+.nametime{
+    width: 360px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.chatname{
+    font-size: 17px;
+    font-weight: 550;
+}
+.lastMessage{
+    color: #5f6368;
+}
+.chatmain img{
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+}
+.bot{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.unread{
+    width:23px;
+    height: 23px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 15px;
+    border-radius: 50%;
+     background-color: #25D366;
+}
