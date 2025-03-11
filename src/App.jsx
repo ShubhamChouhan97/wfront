@@ -13,7 +13,7 @@ import Community from "./container/Community";
 import { Idget } from "./API/idget"; 
 
 import { io } from "socket.io-client";
-const socket = io("http://localhost:3000");
+const socket = io("https://wback-mpbz.onrender.com");
 
 function App() {
 

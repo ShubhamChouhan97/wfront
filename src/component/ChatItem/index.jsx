@@ -2,7 +2,7 @@ import React from "react";
 import styles from './style.module.css';
 
 const ChatItem = ({ chat, onSelectChat }) => {
-  const imageUrl = `http://localhost:3000${chat.dp}`;
+  const imageUrl = `https://wback-mpbz.onrender.com/${chat.dp}`;
   return (
     <div className={styles.chatmain} onClick={() => onSelectChat(chat)}>
       <img 

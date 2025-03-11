@@ -5,7 +5,7 @@ import Button from "../../component/Button";
 import { loginUser } from "../../API/login"; // Import the login API function
 import SignUp from "../SignUp"; // Import SignUp for switching
 import { io } from "socket.io-client";
-const socket = io("http://localhost:3000");
+const socket = io("https://wback-mpbz.onrender.com");
 
 function Login({ onLogin }) {
   const [formData, setFormData] = useState({

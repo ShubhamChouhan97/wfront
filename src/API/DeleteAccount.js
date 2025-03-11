@@ -11,7 +11,7 @@ export const DeleteAccount = async () => {
   
     try {
       // Making the API request to delete the account
-      const response = await fetch('http://localhost:3000/api/auth/delete', {
+      const response = await fetch('https://wback-mpbz.onrender.com/api/auth/delete', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

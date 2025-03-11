@@ -4,7 +4,7 @@ import styles from './style.module.css';
 import Chatcontainer from '../../component/Chatcontainer';
 import { Chatofuser } from '../../API/chatofuser';
 import { io } from "socket.io-client";
-const socket = io("http://localhost:3000");
+const socket = io("https://wback-mpbz.onrender.com");
 function Chatbox({ reciverId,selectedChat}) {
   const userId = localStorage.getItem("userId");
   const [details, setDetails] = useState([]);

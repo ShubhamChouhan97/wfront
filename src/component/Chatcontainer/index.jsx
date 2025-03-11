@@ -6,7 +6,7 @@ import styles from "./style.module.css";
 import Input from "../../component/Input";
 import Button from "../Button";
 
-const socket = io("http://localhost:3000");
+const socket = io("https://wback-mpbz.onrender.com/");
 
 function ChatContainer({ reciverId, selectedChat, details }) {
   const [message, setMessage] = useState("");
@@ -30,7 +30,7 @@ function ChatContainer({ reciverId, selectedChat, details }) {
     const fetchMessages = async () => {
       if (!selectedChat || !details?.chat?.length) return;
       try {
-        const response = await fetch("http://localhost:3000/api/chat/messages", {
+        const response = await fetch("https://wback-mpbz.onrender.com/api/chat/messages", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ messageIds: details.chat }),
@@ -87,7 +87,7 @@ function ChatContainer({ reciverId, selectedChat, details }) {
       sender: "You",
       text: message || null,
       time: formattedTime,
-      imageUrl: imageUrl ? `http://localhost:3000${imageUrl}` : null,
+      imageUrl: imageUrl ? `https://wback-mpbz.onrender.com/${imageUrl}` : null,
     };
   
     setChatMessages((prevMessages) => [...prevMessages, newMessage]);
@@ -97,7 +97,7 @@ function ChatContainer({ reciverId, selectedChat, details }) {
       senderId: userId,
       receiverobjectId: selectedChat.reciverobjectid,
       message: message || null,
-      imageUrl: imageUrl ? `http://localhost:3000${imageUrl}` : null,
+      imageUrl: imageUrl ? `https://wback-mpbz.onrender.com/${imageUrl}` : null,
     });
   
     setMessage("");
@@ -156,7 +156,7 @@ function ChatContainer({ reciverId, selectedChat, details }) {
     formData.append("image", imgforserver[0]);
 
     try {
-      const response = await fetch("http://localhost:3000/upload/uploadPic", {
+      const response = await fetch("https://wback-mpbz.onrender.com/upload/uploadPic", {
         method: "POST",
         body: formData,
       });
@@ -177,7 +177,7 @@ function ChatContainer({ reciverId, selectedChat, details }) {
         <>
           <div className={styles.detailsdiv}>
             <div className={styles.dpimg}>
-              <img src={`http://localhost:3000${details.dp}`} alt={details.userName} />
+              <img src={`https://wback-mpbz.onrender.com/${details.dp}`} alt={details.userName} />
             </div>
             <div className={styles.reciverdetails}>
               <span className={styles.recivername}>{details.userName}</span>

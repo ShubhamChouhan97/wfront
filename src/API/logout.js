@@ -1,7 +1,7 @@
 // src/api/logout.js
 export const logoutUser = async () => {
     try {
-      const response = await fetch('http://localhost:3000/api/auth/logout', {
+      const response = await fetch('https://wback-mpbz.onrender.com/api/auth/logout', {
         method: 'POST',
         credentials: 'include', // Ensures cookies are included in the request
         headers: {

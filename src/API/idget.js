@@ -1,6 +1,6 @@
 export const Idget = async () => {
   
-    const response = await fetch('http://localhost:3000/api/auth/idget', {
+    const response = await fetch('https://wback-mpbz.onrender.com/api/auth/idget', {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',

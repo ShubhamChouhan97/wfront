@@ -10,7 +10,7 @@ export const uploadFiles = async (images) => {
 
   try {
     // Send the images to the server using a POST request
-    const response = await fetch("http://localhost:3000/upload/uploadPic", {
+    const response = await fetch("https://wback-mpbz.onrender.com/upload/uploadPic", {
       method: "POST",
       body: formData, // FormData automatically sets the correct Content-Type
     });
