@@ -8,7 +8,8 @@ export default defineConfig({
     port: process.env.PORT || 4173, // Use Render's port or fallback to 3000
   },
   server: {
-    host: '0.0.0.0',
+    host: true,
     port: process.env.PORT || 3000,
+    allowedHosts: ['wfront.onrender.com'],
   },
 });
