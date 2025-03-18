@@ -17,7 +17,7 @@ export const Chatofuser = async (senderatid,reciveratid) => {
     }
     // console.log("reciverid at api",reciveratid);
     // console.log("senderid at api",senderatid);
-    const response = await fetch('http://localhost:3000/api/chat/ofuser', {
+    const response = await fetch('https://wback-06q5.onrender.com/api/chat/ofuser', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

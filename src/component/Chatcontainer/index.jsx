@@ -330,7 +330,7 @@ import styles from "./style.module.css";
 import Input from "../../component/Input";
 import Button from "../Button";
 import { Chatofuser } from '../../API/chatofuser';
-const socket = io("http://localhost:3000");
+const socket = io("https://wback-06q5.onrender.com");
 
 function ChatContainer({ reciverId, selectedChat}) {
   const [message, setMessage] = useState("");
@@ -397,7 +397,7 @@ useEffect(() => {
     const fetchMessages = async () => {
       if (!selectedChat || !details?.chat?.length) return;
       try {
-        const response = await fetch("http://localhost:3000/api/chat/messages", {
+        const response = await fetch("https://wback-06q5.onrender.com/api/chat/messages", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ messageIds: details.chat }),
@@ -439,7 +439,7 @@ useEffect(() => {
       sender: "You",
       text: message || null,
       time: formattedTime,
-      imageUrl: imageUrl ? `http://localhost:3000${imageUrl}` : null,
+      imageUrl: imageUrl ? `https://wback-06q5.onrender.com${imageUrl}` : null,
     };
   
     setChatMessages((prevMessages) => [...prevMessages, newMessage]);
@@ -449,7 +449,7 @@ useEffect(() => {
       senderId: userId,
       receiverobjectId: selectedChat.reciverobjectid,
       message: message || null,
-      imageUrl: imageUrl ? `http://localhost:3000${imageUrl}` : null,
+      imageUrl: imageUrl ? `https://wback-06q5.onrender.com${imageUrl}` : null,
     });
   
     setMessage("");
@@ -513,7 +513,7 @@ setStatus("Online")
     formData.append("image", imgforserver[0]);
 
     try {
-      const response = await fetch("http://localhost:3000/upload/uploadPic", {
+      const response = await fetch("https://wback-06q5.onrender.com/upload/uploadPic", {
         method: "POST",
         body: formData,
       });
@@ -534,7 +534,7 @@ setStatus("Online")
         <>
           <div className={styles.detailsdiv}>
             <div className={styles.dpimg}>
-              <img src={`http://localhost:3000${details.dp}`} alt={details.userName} />
+              <img src={`https://wback-06q5.onrender.com${details.dp}`} alt={details.userName} />
             </div>
             <div className={styles.reciverdetails}>
               <span className={styles.recivername}>{details.userName}</span>

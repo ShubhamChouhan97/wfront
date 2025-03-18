@@ -28,7 +28,7 @@ console.log("email at uploadfile",email);
 
   try {
     // Send the images to the server using a POST request
-    const response = await fetch("http://localhost:3000/upload/uploadPic", {
+    const response = await fetch("https://wback-06q5.onrender.com/upload/uploadPic", {
       method: "POST",
       credentials: 'include',
       body: JSON.stringify({ user:email,formData}), 

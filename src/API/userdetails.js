@@ -14,7 +14,7 @@ export const userdetail = async () => {
 
         // console.log("Sending email:", email);
 
-        const response = await fetch("http://localhost:3000/api/auth/detail", {
+        const response = await fetch("https://wback-06q5.onrender.com/api/auth/detail", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

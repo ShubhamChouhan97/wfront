@@ -15,7 +15,7 @@ import { Idget } from "./API/idget";
 import  { tokencheck } from './API/tokencheck';
 
 import { io } from "socket.io-client";
-const socket = io("http://localhost:3000");
+const socket = io("https://wback-06q5.onrender.com");
 
 function App() {
 let i =0;

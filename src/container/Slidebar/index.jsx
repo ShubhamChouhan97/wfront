@@ -10,7 +10,7 @@ import Input from '../../component/Input';
 import Chatlist from '../../component/Chatlist';
 import { fetchChat } from '../../API/fetchchat';
 import { io } from "socket.io-client";
-const socket = io("http://localhost:3000"); // Ensure this is defined
+const socket = io("https://wback-06q5.onrender.com"); // Ensure this is defined
 import { logoutUser } from '../../API/logout';
 import { DeleteAccount } from '../../API/DeleteAccount';
 

@@ -37,7 +37,7 @@ const Profile = () => {
   useEffect(() => {
     setName(userData.userName || "User");
     setAbout(userData.about || "No bio available");
-    setProfilePic(userData.dp ? `http://localhost:3000${userData.dp}` : "");
+    setProfilePic(userData.dp ? `https://wback-06q5.onrender.com${userData.dp}` : "");
   }, [userData]);
 
   const updateUserData = async (updatedFields) => {
