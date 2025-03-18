@@ -3,7 +3,7 @@ import styles from "./style.module.css";
 import Input from "../../component/Input";
 import Button from "../../component/Button";
 import { loginUser } from "../../API/login"; // Import the login API function
-import SignUp from "../SignUp"; // Import SignUp for switching
+import SignUp from "../Signup"; // Import SignUp for switching
 import { io } from "socket.io-client";
 const socket = io("https://wback-06q5.onrender.com");
 import ForgotPass from "../ForgotPass";
