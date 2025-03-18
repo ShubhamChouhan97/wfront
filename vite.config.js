@@ -3,9 +3,14 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
+  base: '/', // Ensure this is correct for Render
+  build: {
+    outDir: 'dist', // Ensure this matches your deployment folder
+    assetsDir: 'assets',
+  },
   preview: {
     host: '0.0.0.0',
-    port: process.env.PORT || 4173, // Use Render's port or fallback to 3000
+    port: process.env.PORT || 4173,
   },
   server: {
     host: true,
