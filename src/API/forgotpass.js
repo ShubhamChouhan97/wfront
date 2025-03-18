@@ -1,0 +1,22 @@
+export const forgotpass = async (email)=>{
+console.log("emaila at ",email);
+
+
+
+const response = await fetch('http://localhost:3000/api/auth/forgotpass', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({email})
+    });
+
+    if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    else{
+        alert("Link share on your Email");
+    }
+    const data = await response.json();
+    return data;
+}
