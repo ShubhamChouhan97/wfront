@@ -9,11 +9,12 @@ import Profile from "../container/Profile";
 import Community from "../container/Community";
 import { useState, useEffect } from "react";
 import { io } from "socket.io-client";
-import "./home.css";
-const socket = io("https://wback-06q5.onrender.com");
+import "./Home.css";
+const socket = io("http://localhost:3000");
 import { ToastContainer, toast } from "react-toastify"; 
 import { useNavigate } from "react-router-dom";
 import { tokencheck } from "../API/tokencheck";
+
 function Home() {
       const navigate = useNavigate();
 
@@ -27,7 +28,13 @@ function Home() {
       const [showSetting, setSetting] = useState(false);
       const [reciverId, setreciverId] = useState(null);
 
-let cookieInterval;
+// let cookieInterval;
+
+// function checkAuth() {
+//       const token = localStorage.getItem("token");
+//       const cookieToken = document.cookie.split("; ").find(row => row.startsWith("auth_token="));
+//       return !!token && !!cookieToken;
+//     }
 
       // useEffect(() => {
       //   const handleStorageChange = async () => {

@@ -16,7 +16,7 @@ const Verifyaccount = () => {
     const verifyToken = async () => {
       try {
         // Verifying the token on the backend
-        const res = await axios.get(`https://wback-06q5.onrender.com/api/auth/verifyresettoken?token=${token}`);
+        const res = await axios.get(`http://localhost:3000/api/auth/verifyresettoken?token=${token}`);
         setIsValidToken(true);
         setError('');
       } catch (err) {
@@ -36,7 +36,7 @@ const Verifyaccount = () => {
     setLoading(true);
 
     try {
-      await axios.post(`https://wback-06q5.onrender.com/api/auth/activeaccount`, { token });
+      await axios.post(`http://localhost:3000/api/auth/activeaccount`, { token });
       toast.success("Verification Done! Redirecting to login...", { position: "top-center" });
       setTimeout(() => {
         navigate("/login"); // Navigate after 3 seconds
@@ -98,6 +98,19 @@ const styles = {
   heading: {
     marginBottom: "20px",
     color: "#333",
+  },
+  form: {
+    display: "flex",
+    flexDirection: "column",
+    gap: "15px",
+  },
+  input: {
+    width: "95%",
+    padding: "10px",
+    fontSize: "16px",
+    borderRadius: "4px",
+    border: "1px solid #ccc",
+    outline: "none",
   },
   button: {
     padding: "12px",

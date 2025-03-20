@@ -18,7 +18,7 @@ const ResetPassword = () => {
    // console.log("Verifying token:", token);
 
     axios
-      .get(`https://wback-06q5.onrender.com/api/auth/verifyresettoken?token=${token}`)
+      .get(`http://localhost:3000/api/auth/verifyresettoken?token=${token}`)
       .then((res) => {
         setIsValidToken(true);
         setError('');
@@ -49,7 +49,7 @@ const ResetPassword = () => {
 
     setLoading(true);
     try {
-      await axios.post(`https://wback-06q5.onrender.com/api/auth/resetpassword`, {
+      await axios.post(`http://localhost:3000/api/auth/resetpassword`, {
         token,
         password,
       });

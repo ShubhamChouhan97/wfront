@@ -11,7 +11,7 @@ import { io } from "socket.io-client";
 import { ToastContainer, toast } from "react-toastify"; 
 import "react-toastify/dist/ReactToastify.css"; // Ensure Toastify styles are included
 import { Mail, Lock  } from "lucide-react";
-const socket = io("https://wback-06q5.onrender.com");
+const socket = io("http://localhost:3000");
 
 function Login({ onLogin }) {
   const navigate = useNavigate();
@@ -51,7 +51,7 @@ function Login({ onLogin }) {
           navigate("/"); // Navigate to main after 3 seconds
         }, 2000);
       } else {
-        toast.error(result.data.message || "Login failed",{position:"top-center"});
+        toast.error(result.data.message || "Login failed");
       }
     } catch (err) {
       console.log("Login error:", err);
