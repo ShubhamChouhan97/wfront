@@ -4,7 +4,7 @@ import styles from './style.module.css';
 import Chatcontainer from '../../component/Chatcontainer';
 
 import { io } from "socket.io-client";
-const socket = io("https://wback-06q5.onrender.com");
+const socket = io("http://localhost:3000");
 function Chatbox({ reciverId,selectedChat}) {
  
   return (

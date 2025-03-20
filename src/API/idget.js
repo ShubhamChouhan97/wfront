@@ -15,7 +15,7 @@ export const Idget = async () => {
     if (!email) {
       return { success: false, data: { message: "No email found in localStorage." } };
     }
-    const response = await fetch('https://wback-06q5.onrender.com/api/auth/idget', {
+    const response = await fetch('http://localhost:3000/api/auth/idget', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

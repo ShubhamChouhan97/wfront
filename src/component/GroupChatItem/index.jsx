@@ -2,7 +2,7 @@ import React from "react";
 import styles from './styles.module.css';
 
 const GroupChatItem = ({ groupChat}) => {
-  const imageUrl = `https://wback-06q5.onrender.com${groupChat.dp}`;
+  const imageUrl = `http://localhost:3000${groupChat.dp}`;
 
   return (
     <div className={styles.chatmain}>

@@ -40,7 +40,7 @@ const Profile = () => {
   useEffect(() => {
     setName(userData.userName || "User");
     setAbout(userData.about || "No bio available");
-    setProfilePic(userData.dp ? `https://wback-06q5.onrender.com${userData.dp}` : "");
+    setProfilePic(userData.dp ? `http://localhost:3000${userData.dp}` : "");
   }, [userData]);
 
   const updateUserData = async (updatedFields) => {
@@ -75,14 +75,14 @@ const Profile = () => {
     formData.append("email",email); // Send email with the image
 
     try {
-      const response = await fetch("https://wback-06q5.onrender.com/upload/uploadProfilePic", {
+      const response = await fetch("http://localhost:3000/upload/uploadProfilePic", {
         method: "POST",
         body: formData,
       });
 
       const data = await response.json();
       if (data.success) {
-        const imageUrl = `https://wback-06q5.onrender.com${data.imageUrl}`;
+        const imageUrl = `http://localhost:3000${data.imageUrl}`;
         setProfilePic(imageUrl);
         updateUserData({ dp: data.imageUrl });
       } else {

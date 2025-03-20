@@ -17,7 +17,7 @@ export const tokencheck = async () => {
     }
   
     try {
-      const response = await fetch("https://wback-06q5.onrender.com/api/auth/authenticate", {
+      const response = await fetch("http://localhost:3000/api/auth/authenticate", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
