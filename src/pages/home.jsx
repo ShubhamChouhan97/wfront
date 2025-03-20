@@ -9,7 +9,7 @@ import Profile from "../container/Profile";
 import Community from "../container/Community";
 import { useState, useEffect } from "react";
 import { io } from "socket.io-client";
-import "./Home.css";
+import "./home.css";
 const socket = io("http://localhost:3000");
 import { ToastContainer, toast } from "react-toastify"; 
 import { useNavigate } from "react-router-dom";
