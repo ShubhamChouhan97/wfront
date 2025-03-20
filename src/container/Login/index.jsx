@@ -51,7 +51,7 @@ function Login({ onLogin }) {
           navigate("/"); // Navigate to main after 3 seconds
         }, 2000);
       } else {
-        toast.error(result.data.message || "Login failed");
+        toast.error(result.data.message || "Login failed",{position:"top-center"});
       }
     } catch (err) {
       console.log("Login error:", err);
