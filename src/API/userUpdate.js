@@ -12,7 +12,7 @@ export const userUpdate = async (updateData) => {
             email = JSON.parse(email).email;
         }
 
-        const response = await fetch("http://localhost:3000/api/auth/update", {
+        const response = await fetch("https://wback-06q5.onrender.com/api/auth/update", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

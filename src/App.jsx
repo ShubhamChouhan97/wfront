@@ -424,7 +424,7 @@ import Login from "./container/Login";
 import Signup from "./container/Signup";
 import ResetPassword from "./pages/restpass";
 import ProtectedRoute from "./component/ProtectedRoute";
-import Home from "./pages/Home";  // Main home page or dashboard
+import Home from "./pages/home";  // Main home page or dashboard
 import Verifyaccount from './pages/verify';
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);

@@ -6,7 +6,7 @@ import { userdetail } from '../../API/userdetails';
 import ClipLoader from "react-spinners/ClipLoader";
 import Login from '../Login';
 import { io } from "socket.io-client";
-const socket = io("http://localhost:3000");
+const socket = io("https://wback-06q5.onrender.com");
 import { ToastContainer, toast } from "react-toastify"; 
 
 function Settingcon() {
@@ -19,7 +19,7 @@ function Settingcon() {
   });
 
   // Backend server URL (adjust this based on your actual server URL)
-  const SERVER_URL = "http://localhost:3000";
+  const SERVER_URL = "https://wback-06q5.onrender.com";
 
   useEffect(() => {
     async function fetchUserDetails() {
