@@ -449,7 +449,6 @@ function App() {
       <Route path="/signup" element={isLoggedIn ? <Navigate to="/" /> : <Signup />} />
       <Route path="/reset-password/:token" element={<ResetPassword />} />
       <Route path="/verify/:token" element={<Verifyaccount/>}/>
-      <Route path="/shubham" element={<Signup />}/>
       {/* Protected Routes */}
       <Route element={<ProtectedRoute isAuthenticated={isLoggedIn} onLogout={handleLogout} />}>
         <Route path="/" element={<Home />} />
