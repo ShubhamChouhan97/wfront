@@ -8,7 +8,7 @@
 }
 
 .center {
-    background-color: #d7d7d8;
+    background-color: #eeeeee;
     height: auto;
     width: 25%;
     border-radius: 5px;
@@ -73,5 +73,19 @@
   
   .signinText:hover {
     opacity: 0.8;
+  }
+  .spinner {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #fff;
+    border-top: 2px solid transparent;
+    border-radius: 50%;
+    display: inline-block;
+    animation: spin 0.8s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
   }
   

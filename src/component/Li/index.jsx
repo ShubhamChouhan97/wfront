@@ -1,5 +1,5 @@
 import React from 'react';
-import Imgbutton from '../Imgbutton';
+import Imgbutton from '../ImgButton';
 import styles from './style.module.css';
 
 import msgimg from '../../assets/msg.png';

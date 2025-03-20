@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from "react-router-dom";
 import styles from './styles.module.css';
 import { logoutUser } from '../../API/logout';
 import { userdetail } from '../../API/userdetails';
 import ClipLoader from "react-spinners/ClipLoader";
-
+import Login from '../Login';
 import { io } from "socket.io-client";
-const socket = io("https://wback-06q5.onrender.com");
+const socket = io("http://localhost:3000");
+import { ToastContainer, toast } from "react-toastify"; 
 
 function Settingcon() {
-
+  const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
   const [userData, setUserData] = useState({
     dp: '',
@@ -17,7 +19,7 @@ function Settingcon() {
   });
 
   // Backend server URL (adjust this based on your actual server URL)
-  const SERVER_URL = "https://wback-06q5.onrender.com";
+  const SERVER_URL = "http://localhost:3000";
 
   useEffect(() => {
     async function fetchUserDetails() {
@@ -44,20 +46,17 @@ function Settingcon() {
   
  const logout = async () =>{
   await socket.emit("offline",{MyId});
-  document.cookie.split(";").forEach((cookie) => {
-    document.cookie = cookie
-      .replace(/^ +/, "") // Remove spaces
-      .replace(/=.*/, "=;expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/"); // Expire cookies
-  });
-
-  // Clear localStorage and sessionStorage
-  localStorage.clear();
-  sessionStorage.clear();
-  logoutUser();
+  await logoutUser();
+  toast.success("Logged out successfully!", { position: "top-center" });
+        localStorage.clear();
+        setTimeout(() => {
+          navigate("/login"); // Navigate after 3 seconds
+        }, 3000);
 
  }
   return (
     <div className={styles.main}>
+     <ToastContainer/>
       {loading ? (
         <div className={styles.loadingContainer}>
           <ClipLoader color="blue" size={50} />

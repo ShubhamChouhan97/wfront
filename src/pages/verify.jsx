@@ -1,13 +1,11 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { ToastContainer, toast } from "react-toastify"; 
+import { ToastContainer, toast } from "react-toastify";
 
-const ResetPassword = () => {
+const Verifyaccount = () => {
   const { token } = useParams();
   const navigate = useNavigate();
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const [isValidToken, setIsValidToken] = useState(false);
@@ -15,53 +13,39 @@ const ResetPassword = () => {
   useEffect(() => {
     if (!token) return;
 
-   // console.log("Verifying token:", token);
-
-    axios
-      .get(`http://localhost:3000/api/auth/verifyresettoken?token=${token}`)
-      .then((res) => {
+    const verifyToken = async () => {
+      try {
+        // Verifying the token on the backend
+        const res = await axios.get(`http://localhost:3000/api/auth/verifyresettoken?token=${token}`);
         setIsValidToken(true);
         setError('');
-      })
-      .catch((err) => {
+      } catch (err) {
         setIsValidToken(false);
-        toast.error(err.response?.data?.message,{position:"top-center"});
+        toast.error(err.response?.data?.message, { position: "top-center" });
         setTimeout(() => {
           navigate("/login"); // Navigate after 3 seconds
-         }, 5000);
+        }, 5000);
         setError('Invalid or expired token.');
-      });
-  }, [token]);
+      }
+    };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-     
-    if (password !== confirmPassword) {
-      toast.error("Passwords do not match",{position:"top-center"});
-      return;
-    }
-    if ( password < 6) {
-      toast.error("Password must be at least 6 characters long", {
-        position: "top-center",
-        autoClose: 3000,
-      });
-    }
+    verifyToken();
+  }, [token, navigate]);
 
+  const handleActivateAccount = async () => {
     setLoading(true);
+
     try {
-      await axios.post(`http://localhost:3000/api/auth/resetpassword`, {
-        token,
-        password,
-      });
-      toast.success("Password reset successfully! Redirecting to login...", { position: "top-center" });
-               setTimeout(() => {
-                navigate("/login"); // Navigate after 3 seconds
-               }, 3000);
-    } catch (error) {
-      toast.error(error.response?.data?.message,{position:"top-center"});
+      await axios.post(`http://localhost:3000/api/auth/activeaccount`, { token });
+      toast.success("Verification Done! Redirecting to login...", { position: "top-center" });
       setTimeout(() => {
         navigate("/login"); // Navigate after 3 seconds
-       }, 5000);
+      }, 3000);
+    } catch (error) {
+      toast.error(error.response?.data?.message, { position: "top-center" });
+      setTimeout(() => {
+        navigate("/login"); // Navigate after 3 seconds
+      }, 5000);
       setError("Something went wrong.");
     } finally {
       setLoading(false);
@@ -70,34 +54,23 @@ const ResetPassword = () => {
 
   return (
     <div style={styles.mainContainer}>
-     <ToastContainer/>
+      <ToastContainer />
       <div style={styles.centeredContainer}>
-        <h2 style={styles.heading}>Reset Your Password</h2>
+        <h2 style={styles.heading}>Verification Processing</h2>
         {error && <p style={styles.error}>{error}</p>}
         {!isValidToken && <p style={styles.info}>Verifying token...</p>}
-        
+
         {isValidToken && (
-          <form onSubmit={handleSubmit} style={styles.form}>
-            <input
-              type="password"
-              placeholder="New Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-              style={styles.input}
-            />
-            <input
-              type="password"
-              placeholder="Confirm Password"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-              required
-              style={styles.input}
-            />
-            <button type="submit" disabled={loading} style={styles.button}>
-              {loading ? "Resetting..." : "Reset Password"}
+          <div>
+            <p style={styles.info}>Token verified. You can now activate your account.</p>
+            <button
+              style={styles.button}
+              onClick={handleActivateAccount}
+              disabled={loading}
+            >
+              {loading ? "Processing..." : "Activate Account"}
             </button>
-          </form>
+          </div>
         )}
       </div>
     </div>
@@ -132,7 +105,7 @@ const styles = {
     gap: "15px",
   },
   input: {
-    width:"95%",
+    width: "95%",
     padding: "10px",
     fontSize: "16px",
     borderRadius: "4px",
@@ -163,4 +136,4 @@ const styles = {
   },
 };
 
-export default ResetPassword;
+export default Verifyaccount;

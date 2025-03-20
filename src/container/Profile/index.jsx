@@ -4,6 +4,7 @@ import style from "./style.module.css";
 import ClipLoader from "react-spinners/ClipLoader";
 import { userdetail } from "../../API/userdetails";
 import { userUpdate } from "../../API/userUpdate";
+import { ToastContainer, toast } from "react-toastify"; 
 
 const Profile = () => {
   const [loading, setLoading] = useState(true);
@@ -25,7 +26,9 @@ const Profile = () => {
           setUserData(details.data);
         }
       } catch (error) {
-        console.error("Error fetching user details:", error);
+        toast.error("Error fetching user details:", {
+          position: "top-center",
+        })
       } finally {
         setLoading(false);
       }
@@ -37,7 +40,7 @@ const Profile = () => {
   useEffect(() => {
     setName(userData.userName || "User");
     setAbout(userData.about || "No bio available");
-    setProfilePic(userData.dp ? `https://wback-06q5.onrender.com${userData.dp}` : "");
+    setProfilePic(userData.dp ? `http://localhost:3000${userData.dp}` : "");
   }, [userData]);
 
   const updateUserData = async (updatedFields) => {
@@ -46,6 +49,9 @@ const Profile = () => {
       if (response.success) {
         setUserData((prev) => ({ ...prev, ...updatedFields }));
       } else {
+        toast.error("Failed to update user", {
+          position: "top-center",
+        })
         console.error("Failed to update user", response.data);
       }
     } catch (error) {
@@ -56,7 +62,9 @@ const Profile = () => {
   const handleImageUpload = async (event) => {
     const file = event.target.files[0];
     if (!file) {
-      alert("Please select a file.");
+      toast.error("Image upload failed!", {
+        position: "top-center",
+      })
       return;
     }
     const storedData = localStorage.getItem("email");
@@ -78,7 +86,11 @@ const Profile = () => {
         setProfilePic(imageUrl);
         updateUserData({ dp: data.imageUrl });
       } else {
-        alert("Image upload failed!");
+
+        toast.error("Image upload failed!", {
+          position: "top-center",
+        })
+        
       }
     } catch (error) {
       console.error("Error uploading image:", error);
@@ -103,6 +115,7 @@ const Profile = () => {
 
   return (
     <div className={style.profileContainer}>
+     <ToastContainer/>
       {loading ? (
         <div className={style.loadingContainer}>
           <ClipLoader color="blue" size={50} />

@@ -3,7 +3,7 @@
     width: 55%;
 }
 .lapimg{
-    margin-top:20% ;
+    margin-top:25% ;
     width: 100%;
     /* background-color: yellow; */
     display: flex;
@@ -16,16 +16,16 @@
     /* background-color: blue; */
 }
 .deatills h1{
-    margin-left: 21%;
+    margin-left: 30%;
     color: #56656F;
 }
 .deatills p{
     margin-top: 1%;
-    margin-left: 21%;
+    margin-left: 31%;
     color: #54656F;
 }
 .p2{
-    padding-left: 200px;
+    padding-left: 70px;
    
 }
 .lapimg img{
