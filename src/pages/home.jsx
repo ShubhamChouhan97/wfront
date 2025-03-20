@@ -13,7 +13,7 @@ import "./home.css";
 const socket = io("https://wback-06q5.onrender.com");
 import { ToastContainer, toast } from "react-toastify"; 
 import { useNavigate } from "react-router-dom";
-
+import { tokencheck } from "../API/tokencheck";
 function Home() {
       const navigate = useNavigate();
 
@@ -29,48 +29,48 @@ function Home() {
 
 let cookieInterval;
 
-      useEffect(() => {
-        const handleStorageChange = async () => {
-          if (!checkAuth()) {
-             toast.success("Error With Your Account !", { position: "top-center" });
-                setTimeout(() => {
-                  navigate("/"); // Navigate after 3 seconds
-                }, 3000);
-          }
-        };
-        window.addEventListener("storage", handleStorageChange);
+      // useEffect(() => {
+      //   const handleStorageChange = async () => {
+      //     if (!checkAuth()) {
+      //        toast.success("Error With Your Account !", { position: "top-center" });
+      //           setTimeout(() => {
+      //             navigate("/"); // Navigate after 3 seconds
+      //           }, 3000);
+      //     }
+      //   };
+      //   window.addEventListener("storage", handleStorageChange);
     
-        // Periodically check authentication to detect cookie changes
-       cookieInterval = setInterval(async () => {
-        const MyId = localStorage.getItem("userId");
-          let data =  await tokencheck();
-          if (data.message=="Unauthorized") {
-            socket.emit("offline",{MyId});
-            localStorage.clear();
-            clearInterval(cookieInterval);
-            toast.success("Error With Your Account !", { position: "top-center" });
-                setTimeout(() => {
-                  navigate("/"); // Navigate after 3 seconds
-                }, 3000);
+      //   // Periodically check authentication to detect cookie changes
+      //  cookieInterval = setInterval(async () => {
+      //   const MyId = localStorage.getItem("userId");
+      //     let data =  await tokencheck();
+      //     if (data.message=="Unauthorized") {
+      //       socket.emit("offline",{MyId});
+      //       localStorage.clear();
+      //       clearInterval(cookieInterval);
+      //       toast.success("Error With Your Account !", { position: "top-center" });
+      //           setTimeout(() => {
+      //             navigate("/"); // Navigate after 3 seconds
+      //           }, 3000);
           
-          }
-          let auth = checkAuth();
-          if (!auth) {
-           socket.emit("offline",{MyId});
-           localStorage.clear();
-           clearInterval(cookieInterval);
-           toast.success("Error With Your Account !", { position: "top-center" });
-               setTimeout(() => {
-                 navigate("/"); // Navigate after 3 seconds
-               }, 3000);
-          }
-        }, 3000); // Check every 3 seconds
+      //     }
+      //     let auth = checkAuth();
+      //     if (!auth) {
+      //      socket.emit("offline",{MyId});
+      //      localStorage.clear();
+      //      clearInterval(cookieInterval);
+      //      toast.success("Error With Your Account !", { position: "top-center" });
+      //          setTimeout(() => {
+      //            navigate("/"); // Navigate after 3 seconds
+      //          }, 3000);
+      //     }
+      //   }, 3000); // Check every 3 seconds
     
-        return () => {
-          window.removeEventListener("storage", handleStorageChange);
-          clearInterval(cookieInterval);
-        };
-      }, []);
+      //   return () => {
+      //     window.removeEventListener("storage", handleStorageChange);
+      //     clearInterval(cookieInterval);
+      //   };
+      // }, []);
 
        const handleMetaAI = () => window.open(metaurl, "_blank");
     
