@@ -11,7 +11,7 @@ import { io } from "socket.io-client";
 import { ToastContainer, toast } from "react-toastify"; 
 import "react-toastify/dist/ReactToastify.css"; // Ensure Toastify styles are included
 import { Mail, Lock  } from "lucide-react";
-const socket = io("http://localhost:3000");
+const socket = io("https://wback-06q5.onrender.com");
 
 function Login({ onLogin }) {
   const navigate = useNavigate();

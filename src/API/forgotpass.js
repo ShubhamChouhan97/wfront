@@ -3,7 +3,7 @@ export const forgotpass = async (email)=>{
 
 
 
-const response = await fetch('http://localhost:3000/api/auth/forgotpass', {
+const response = await fetch('https://wback-06q5.onrender.com/api/auth/forgotpass', {
     method: 'POST',
     headers: {
         'Content-Type': 'application/json',

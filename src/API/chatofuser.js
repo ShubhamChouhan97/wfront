@@ -15,7 +15,7 @@ export const Chatofuser = async (senderatid,reciveratid) => {
     if (!email) {
       return { success: false, data: { message: "No email found in localStorage." } };
     }
-    const response = await fetch('http://localhost:3000/api/chat/ofuser', {
+    const response = await fetch('https://wback-06q5.onrender.com/api/chat/ofuser', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

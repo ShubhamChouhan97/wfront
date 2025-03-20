@@ -9,7 +9,7 @@ const ProtectedRoute = () => {
     const verifyUser = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:3000/api/auth/checktoken", // Empty object for POST body
+          "https://wback-06q5.onrender.com/api/auth/checktoken", // Empty object for POST body
           { withCredentials: true } // Send cookies and authentication credentials
         );
         

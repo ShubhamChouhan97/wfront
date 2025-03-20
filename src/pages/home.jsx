@@ -10,7 +10,7 @@ import Community from "../container/Community";
 import { useState, useEffect } from "react";
 import { io } from "socket.io-client";
 import "./home.css";
-const socket = io("http://localhost:3000");
+const socket = io("https://wback-06q5.onrender.com");
 import { ToastContainer, toast } from "react-toastify"; 
 import { useNavigate } from "react-router-dom";
 import { tokencheck } from "../API/tokencheck";
