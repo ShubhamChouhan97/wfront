@@ -447,8 +447,8 @@ function App() {
     <Routes>
       <Route path="/login" element={<Login onLogin={handleLogin}/>} />
       <Route path="/signup" element={isLoggedIn ? <Navigate to="/" /> : <Signup />} />
-      <Route path="/reset-password" element={<ResetPassword />} />
-      <Route path="/verify" element={<Verifyaccount/>}/>
+      <Route path="/reset-password/:token" element={<ResetPassword />} />
+      <Route path="/verify/:token" element={<Verifyaccount/>}/>
       {/* Protected Routes */}
       <Route element={<ProtectedRoute isAuthenticated={isLoggedIn} onLogout={handleLogout} />}>
         <Route path="/" element={<Home />} />
