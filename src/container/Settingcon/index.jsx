@@ -46,7 +46,7 @@ function Settingcon() {
   
  const logout = async () =>{
   await socket.emit("offline",{MyId});
-  await logoutUser();
+  await logoutUser(1);
   toast.success("Logged out successfully!", { position: "top-center" });
         localStorage.clear();
         setTimeout(() => {

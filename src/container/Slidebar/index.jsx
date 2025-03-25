@@ -85,7 +85,7 @@ const Slidebar = ({ onChatSelect }) => {
   }
   const Logoutbtn = async () => {
     try {
-      await logoutUser(); // Ensure this function handles errors properly
+      await logoutUser(1); // Ensure this function handles errors properly
       toast.success("Logged out successfully!", { position: "top-center" });
       localStorage.clear();
       setTimeout(() => {

@@ -1,5 +1,5 @@
 // src/api/logout.js
-export const logoutUser = async () => {
+export const logoutUser = async (value) => {
   let email = localStorage.getItem("email");
     
   // Handle possible email format in localStorage
@@ -25,7 +25,7 @@ export const logoutUser = async () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ user:email}),
+        body: JSON.stringify({ user:email,value:value}),
       });
   
       if (response.ok) {
