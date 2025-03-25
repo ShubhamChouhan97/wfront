@@ -34,7 +34,7 @@ function Home() {
         try {
             console.log("Checking token...");
             let data = await tokencheck(); // Ensure this function is properly handling errors
-      
+              console.log(data.message);
             const MyId = localStorage.getItem("userId");
       
             if (data?.message === "Unauthorized") {
