@@ -2,9 +2,6 @@ import React from 'react'
 import styles from './style.module.css'
 import Input from '../../component/Input'
 import Channelstruct from '../../component/Channelstruct';
-
-
-
 const channels = [
     {
       "id": 1,
